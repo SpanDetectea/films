@@ -1,0 +1,59 @@
+.filter {
+    max-width: 200px;
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-auto-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 40px 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+        "name hide"
+        "values values";
+
+    &__name {
+        justify-self: start;
+        grid-area: name;
+    }
+
+    &__values {
+        grid-area: values;
+        width: 100%;
+        display: grid; 
+        grid-template-columns: 100px 100px; 
+        grid-template-rows: 1fr 1fr; 
+        grid-template-areas: 
+          "from upTo"
+          "range range"; 
+        &__from {
+            max-width: 94px;
+            grid-area: from;
+            &__input {
+                max-width: 94px;
+            }
+        }
+        &__upTo {
+            max-width: 94px;
+            grid-area: upTo;
+            justify-self: end; 
+            &__input {
+                max-width: 94px;
+            }
+        }
+        &-hide {
+            display: none;
+        }
+        &__range {
+            width: 100%;
+        }
+    }
+
+    &__hide {
+        justify-self: end;
+        grid-area: hide;
+        transform: rotate(-90deg);
+        background: none;
+        border: none;
+        cursor: pointer;
+        user-select: none;
+    }
+}

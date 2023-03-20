@@ -1,0 +1,11 @@
+.navLinkFilm {
+    &__image {
+        width: 200px;
+        height: 300px;
+        border-radius: 5px;
+    }
+    &__name {
+        padding: 10px 0;
+        font-weight: bold;
+    }
+}

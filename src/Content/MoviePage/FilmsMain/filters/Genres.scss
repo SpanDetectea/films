@@ -1,0 +1,40 @@
+.genres {
+    max-width: 200px;
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-auto-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 40px 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+        "name hide"
+        "v v";
+
+    &__name {
+        grid-area: name;
+    }
+
+    &__hide {
+        grid-area: hide;
+        justify-self: end;
+        align-self: start;
+        transform: rotate(-90deg);
+        background: none;
+        border: none;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    &__values {
+        grid-area: v;
+
+        &__list {
+            &__item {
+                color: #223254;
+            }
+        }
+    }
+}
+select:focus > option:checked { 
+    background: #000 !important;
+}

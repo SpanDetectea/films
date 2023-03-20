@@ -1,0 +1,14 @@
+.buttonBack {
+    height: 30px;
+    position: absolute;
+    top: -35px;
+    left: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Oswald', sans-serif;
+    transition: transform 1s;
+    &:hover {
+        transform: rotate(360deg);
+    }
+}

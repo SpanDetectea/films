@@ -1,0 +1,63 @@
+.navigation {
+    &__menu {
+        width: 30px;
+        height: 30px;
+        position: relative;
+        left: 15px;
+        cursor: pointer;
+        &::after {
+            content: '';
+            position:absolute;
+            top: 0;
+            left: 0;
+            background-color: white;
+            width: 30px;
+            height: 2px;
+        }
+        &::before {
+            content: '';
+            position:absolute;
+            bottom: 0;
+            left: 0;
+            background-color: white;
+            width: 30px;
+            height: 2px;
+            
+        }
+        &__cLine {
+            position:absolute;
+            top: 14px;
+            left: 0;
+            background-color: white;
+            width: 30px;
+            height: 2px;
+        }
+    }
+    &__wrapper {
+        min-width: 30%;
+        padding: 0 5px;
+        height: 30%;
+        background: #1f1d1d;
+        position: fixed;
+        top: 70px;
+        border-radius: 0 0 12px 12px;
+        transition: transform 0.4s;
+        transform: translateY(0);
+        
+        ul {
+            height: 100%;
+            li {
+                height: 25%;
+                font-size: 1.5em;
+                list-style: none;
+                user-select: none;
+                a {
+                    color: white;
+                }
+            }
+        }
+    }
+    &__active {
+        transform: translateY(-300%);
+    }
+}

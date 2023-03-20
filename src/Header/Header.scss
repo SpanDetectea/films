@@ -1,0 +1,131 @@
+.header {
+    width: 100%;
+    height: 70px;
+    background: rgb(31, 29, 29);
+    color: rgb(190, 190, 190);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+
+    &__name {
+        width: 30%;
+        text-align: center;
+    }
+
+    &__search {
+        display: flex;
+        align-items: center;
+        width: 60%;
+        position: relative;
+
+        &__wrapper {
+            width: 50%;
+            position: absolute;
+            top: 20px;
+            left: 25%;
+            background: #1f1d1d;
+            max-height: 200px;
+            padding: 0 10px;
+            overflow: auto;
+            border-radius: 0 0 0 12px;
+
+            &__film {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                margin: 10px 0;
+                border-radius: 12px;
+
+                @media screen and (max-width: 650px) {
+                    font-size: 14px;
+                }
+
+                @media screen and (max-width: 580px) {
+                    font-size: 12px;
+                }
+
+                @media screen and (max-width: 480px) {
+                    font-size: 10px;
+                }
+
+                @media screen and (max-width: 390px) {
+                    font-size: 9px;
+                }
+
+                &__img {
+                    height: 100px;
+                    border-radius: 12px;
+
+                    @media screen and (max-width: 650px) {
+                        height: 80px;
+                    }
+
+                    @media screen and (max-width: 650px) {
+                        height: 60px;
+                    }
+
+                    @media screen and (max-width: 480px) {
+                        height: 40px;
+                    }
+
+                    @media screen and (max-width: 390px) {
+                        height: 30px;
+                    }
+                }
+
+                &__name {
+                    margin: 0 20px;
+                    color: white;
+                }
+            }
+        }
+
+        &__input {
+            display: flex;
+            width: 50%;
+            margin: auto;
+            &__text {
+                height: 25px;
+                border: none;
+                outline: none;
+                padding: 2px 0 2px 4px;
+                border-radius: 8px 0 0 8px;
+                width: 100%;
+                background: rgb(75, 73, 73);
+                color: white;
+
+                &:focus {
+                    background: white;
+                    color: black
+                }
+            }
+
+            &__lens {
+                height: 25px;
+                padding: 2px 4px 2px 0;
+                background: rgb(75, 73, 73);
+                border-radius: 0 8px 8px 0;
+            }
+
+            &__text:focus+&__lens {
+                background-color: white;
+            }
+        }
+    }
+
+    &__signin {
+        cursor: pointer;
+        margin-right: 10px;
+        a {
+            text-decoration: none;
+            color: #BEBEBE;
+
+            &:hover {
+                color: rgb(224, 224, 224);
+            }
+        }
+    }
+}

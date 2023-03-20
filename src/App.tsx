@@ -1,24 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+// import Header from './Header/Header';
+import {
+  Routes,
+  Route
+} from "react-router-dom";
+import NormalyPage from './Content/NormalyPage/NormalyPage';
+import AboutFilmPage from './Content/AboutFilmPage/AboutFilmPage';
+import MoviePage from './Content/MoviePage/MoviePage';
+import Profile from './Content/ProfilePage/Profile';
+import AuthPage from './Content/AuthPage/AuthPage';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path="/" element={<NormalyPage />} />
+        <Route path="/film/:filmId" element={<AboutFilmPage />} />
+        <Route path="/movie" element={<MoviePage />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/auth" element={<AuthPage />} />
+      </Routes>
     </div>
   );
 }

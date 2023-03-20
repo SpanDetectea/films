@@ -1,0 +1,18 @@
+.preloader {
+    position: absolute;
+    background: none;
+    height: 100vh;
+    left: calc(50% - 32px);
+    &__img {
+        position: fixed;
+        top: calc(50% - 120px)
+    }
+}
+.test {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    height: 100vh;
+    background: white;
+    opacity: 0.7;
+}
