@@ -7,7 +7,7 @@ import { setSearchFilms } from '../store/action';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { useTypedSelector } from '../Hooks/useTypedSelector/useTypedSelector';
-import { IFilm } from '../store/mainReducer';
+import { IFilm } from '../types/IFilm';
 
 function Header() {
     const [search, setSearch] = useState('');

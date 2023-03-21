@@ -1,9 +1,7 @@
+import { IRating } from '../../types/IRating';
 import './Rating.scss'
 
-interface IRating {
-    rating: string,
-    type: string
-}
+
 
 function Rating ({rating, type = 'classic'}: IRating) {
     switch (type) {

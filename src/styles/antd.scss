@@ -1,0 +1,13 @@
+.ant-btn {
+    background: lightcoral;
+    color: rgb(76, 72, 72);
+    &:hover {
+        transform: scale(1.1, 1.1);
+        background: lightcoral !important;
+        color: rgb(76, 72, 72) !important;
+    }
+
+    &:active {
+        transform: scale(1.05, 1.05);
+    }
+}

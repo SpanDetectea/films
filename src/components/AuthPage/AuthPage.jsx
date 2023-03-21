@@ -1,6 +1,5 @@
 import './AuthPage.scss';
 import Header from '../../Header/Header'
-import ButtonFilm from '../../common/Buttons/ButtonFilm/ButtonFilm';
 import { useDispatch, useSelector } from 'react-redux';
 import { setAuth } from '../../store/action';
 import { useState } from 'react';
@@ -31,7 +30,7 @@ function AuthPage() {
                 <label>Введите пароль</label>
                 <input type="password" className='authPage__wrapper__info' value={password} onChange={(e) => setPassword(e.target.value)}/>
                 <span onClick={setAuthInfo}>
-                    <ButtonFilm value='Отправить' width='50%' />
+                    {/* <ButtonFilm value='Отправить' width='50%' /> */}
                 </span>
             </div>
         </div>

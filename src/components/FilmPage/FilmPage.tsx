@@ -1,18 +1,19 @@
-import './AboutFilmPage.scss';
+import './FilmPage.scss';
 import { useParams } from 'react-router-dom';
 import React, { useEffect } from 'react';
 import { moviesApi } from '../../api/api';
 import { getFilm } from '../../store/action';
 import { useDispatch, useSelector } from 'react-redux';
-import Header from '../../Header/Header';
 import AddInformation from './AddInformation/AddInformation';
 import SimilarFilm from './SimilarFilm/SimilarFilm';
-import Footer from '../../Footer/Footer';
 import * as Scroll from 'react-scroll';
 import ButtonBack from '../../common/Buttons/ButtonBack/ButtonBack';
 import { useTypedSelector } from '../../Hooks/useTypedSelector/useTypedSelector';
+import { IFilm } from '../../types/IFilm';
+import { ICountries } from '../../types/ICountries';
+import { IGenres } from '../../types/IGenres';
 
-function AboutFilm() {
+function FilmPage() {
     const { filmId } = useParams();
 
     const film = useTypedSelector(state => state.aboutFilm.film);
@@ -25,16 +26,15 @@ function AboutFilm() {
         scrollToTop();
     }, [filmId])
 
-    function scrollToTop () {
+    function scrollToTop() {
         scroll.scrollToTop();
     }
     return <>
-        <Header />
         <div className="aboutFilm">
             <ButtonBack />
-            {film.length > 0 && film.map((item: any) => {
+            {film.length > 0 && film.map((item: IFilm) => {
                 return (<React.Fragment key={item.kinopoiskId}>
-                    <img src={item.posterUrlPreview} className='aboutFilm__image' alt=''/>
+                    <img src={item.posterUrlPreview} className='aboutFilm__image' alt='' />
                     <div className="aboutFilm__wrapper">
                         <h1 className='aboutFilm__wrapper__name'>{item.nameRu ?? item.nameEn ?? item.nameOriginal ?? 'Нет названия'}</h1>
                         <p className='aboutFilm__wrapper__nameOriginal'>{item.nameOriginal ?? 'Нет названия'}<span className='aboutFilm__wrapper__nameOriginal__ageLimits'> {item.ratingAgeLimits && item.ratingAgeLimits.slice(3) + '+'}</span></p>
@@ -43,10 +43,10 @@ function AboutFilm() {
                         <h2 className='aboutFilm__wrapper__description'>О фильме</h2>
                         <ul className='aboutFilm__wrapper__list'>
                             <li className='aboutFilm__wrapper__list__par'><span>Год производства</span><span>{item.year}</span></li>
-                            <li className='aboutFilm__wrapper__list__par'><span>Страна</span><span>{item.countries.map((i: any, index: number) => {
+                            <li className='aboutFilm__wrapper__list__par'><span>Страна</span><span>{item.countries.map((i: ICountries, index: number) => {
                                 return index === item.countries.length - 1 ? `${i.country}` : `${i.country}, `;
                             })}</span></li>
-                            <li className='aboutFilm__wrapper__list__par'><span>Жанр</span><span>{item.genres.map((i: any, index: number) => {
+                            <li className='aboutFilm__wrapper__list__par'><span>Жанр</span><span>{item.genres.map((i: IGenres, index: number) => {
                                 return index === item.genres.length - 1 ? `${i.genre}` : `${i.genre}, `;
                             })}</span></li>
                             <li className='aboutFilm__wrapper__list__par'><span>Слоган</span><span>{item.slogan ?? 'Нет слогана'}</span></li>
@@ -60,7 +60,6 @@ function AboutFilm() {
         </div>
         <AddInformation />
         <SimilarFilm />
-        <Footer />
     </>
 }
-export default AboutFilm;
+export default FilmPage;

@@ -1,10 +1,8 @@
 import { NavLink } from 'react-router-dom';
-import { IFilm } from '../../../store/mainReducer';
+import { INavLinkFilm } from '../../../types/INavLink';
 import './NavLinkFilm.scss';
 
-interface INavLinkFilm {
-    item: IFilm
-}
+
 
 function NavLinkFilm({item}: INavLinkFilm) {
     return <NavLink to={'/film/' + item.filmId} className = 'navLinkFilm'>

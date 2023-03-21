@@ -1,10 +1,8 @@
 import { ReactElement } from 'react';
+import { IH } from '../../types/IH';
 import './H.scss';
 
-interface IH {
-    type: number,
-    value: string,
-}
+
 
 function H ({type, value}: IH): any {
     switch (type) {

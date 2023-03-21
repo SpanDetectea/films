@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { moviesApi } from '../../../api/api';
 import H from '../../../common/H/H';
 import NavLinkFilm from '../../../common/NavLinks/NavLinkFilm/NavLinkFilm';
+import { useTypedSelector } from '../../../Hooks/useTypedSelector/useTypedSelector';
 import { getSimilatFilms } from '../../../store/action'
 import './SimilarFilm.scss';
 
@@ -12,7 +13,7 @@ function SimilarFilm() {
     const { filmId } = useParams();
 
     const dispatch = useDispatch();
-    const aboutFilm = useSelector(state => state.aboutFilm);
+    const aboutFilm = useTypedSelector(state => state.aboutFilm);
 
     const [startIndexFilm, setStartIndexFilm] = useState(0);
 

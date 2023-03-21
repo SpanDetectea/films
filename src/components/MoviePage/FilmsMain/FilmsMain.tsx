@@ -4,14 +4,12 @@ import { setFilmsTC} from '../../../store/ThunkCreator';
 import Filters from './filters/Filters';
 import { RATING__MAX, RATING__MIN, YEAR__MAX, YEAR__MIN } from '../../../consts/filtersConst';
 import H from '../../../common/H/H';
-import ButtonFilm from '../../../common/Buttons/ButtonFilm/ButtonFilm';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import BlockFilm from './BlockFilm/BlockFilm';
 import Preloader from '../../../common/Preloader/Preloader'
 import Pagination from './Pagination/Pagination';
 import { useTypedSelector } from '../../../Hooks/useTypedSelector/useTypedSelector';
-import { IFilm } from '../../../store/mainReducer';
 
 function FilmsMain() {
     const rating = useTypedSelector(state => state.filmsMain.rating);

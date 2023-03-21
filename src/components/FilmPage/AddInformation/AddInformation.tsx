@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { moviesApi } from '../../../api/api';
 import './AddInformation.scss';
 import {getFacts} from '../../../store/action';
+import { useTypedSelector } from '../../../Hooks/useTypedSelector/useTypedSelector';
 
 function AddInformation() {
-    const [choice, setChoice] = useState(2);
+    const [choice, setChoice] = useState(1);
 
     const dispatch = useDispatch();
-    const aboutFilm = useSelector(state => state.aboutFilm)
+    const aboutFilm = useTypedSelector(state => state.aboutFilm)
 
     useEffect(() => {
         if (aboutFilm.film.length > 0) {
@@ -16,10 +17,10 @@ function AddInformation() {
         }
     }, [aboutFilm.film])
 
-    function createMarkup(text) {
+    function createMarkup(text: string) {
         return {__html: `${text}`};
       }
-      function styleHeaderName (numHeader) {
+      function styleHeaderName (numHeader: number) {
         return numHeader === choice ? 'addInformation__wrapper__header__name red': 'addInformation__wrapper__header__name';
       }
     return <div className='addInformation'>
