@@ -2,13 +2,12 @@ import './Main.scss';
 import '../../../styles/antd.scss'
 import { useEffect, useState } from 'react';
 import { moviesApi } from '../../../api/api';
-import { useDispatch } from 'react-redux';
 import { getFilms, getMoreFilms } from '../../../store/action';
 import { NavLink } from 'react-router-dom'
 import Rating from '../../../common/Rating/Rating';
 import NavLinkFilm from '../../../common/NavLinks/NavLinkFilm/NavLinkFilm';
 import H from '../../../common/H/H';
-import { useTypedSelector } from '../../../Hooks/useTypedSelector/useTypedSelector';
+import { useAppDispatch, useTypedSelector } from '../../../Hooks/useTypedSelector/useTypedSelector';
 import { IFilm } from '../../../types/IFilm';
 import { Button } from 'antd';
 
@@ -16,7 +15,7 @@ import { Button } from 'antd';
 function Main() {
 
     const films = useTypedSelector(state => state.main.films)
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const [page, setPage] = useState(1);
 

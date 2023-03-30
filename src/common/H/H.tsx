@@ -1,4 +1,3 @@
-import { ReactElement } from 'react';
 import { IH } from '../../types/IH';
 import './H.scss';
 

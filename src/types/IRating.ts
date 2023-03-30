@@ -1,4 +1,4 @@
 export interface IRating {
-    rating: string,
+    rating: string|number| undefined,
     type: string
 }

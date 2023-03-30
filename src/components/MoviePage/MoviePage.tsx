@@ -5,9 +5,7 @@ import FilmsMain from "./FilmsMain/FilmsMain";
 
 function MoviePage () {
     return <div className="moviePage">
-        <Header />
         <FilmsMain />
-        <Footer />
     </div>
 }
 

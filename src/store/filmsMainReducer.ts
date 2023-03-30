@@ -6,7 +6,9 @@ interface Istate3 {
     year: number[],
     films: any,
     preloaderState: boolean,
-    genres: string[]
+    genres: string[],
+    total?: number,
+    totalPages?: number
 }
 
 let initialState: Istate3 = {

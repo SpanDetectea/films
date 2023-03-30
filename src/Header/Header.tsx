@@ -4,14 +4,13 @@ import { moviesApi } from '../api/api';
 import './Header.scss';
 import Navigation from './Navigation/Navigation';
 import { setSearchFilms } from '../store/action';
-import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { useTypedSelector } from '../Hooks/useTypedSelector/useTypedSelector';
+import { useAppDispatch, useTypedSelector } from '../Hooks/useTypedSelector/useTypedSelector';
 import { IFilm } from '../types/IFilm';
 
 function Header() {
     const [search, setSearch] = useState('');
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const films = useTypedSelector(state => state.header.films)
 
     const getFilms = (word: string) => {

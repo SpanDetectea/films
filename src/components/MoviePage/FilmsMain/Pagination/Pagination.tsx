@@ -1,12 +1,13 @@
 import './Pagination.scss';
-import { useSelector } from 'react-redux'
+import { useTypedSelector } from '../../../../Hooks/useTypedSelector/useTypedSelector';
+import { IPagination } from '../../../../types/IPagination';
 
-function Pagination({ curPage, setCurPage }) {
-    const total = useSelector(state => state.filmsMain.total);
-    const totalPage = useSelector(state => state.filmsMain.totalPages);
+function Pagination({ curPage, setCurPage }: IPagination) {
+    const total = useTypedSelector(state => state.filmsMain.total);
+    const totalPage = useTypedSelector(state => state.filmsMain.totalPages);
     const pageNumbers = Math.ceil(total / totalPage);
 
-    const editCurPage = (type) => {
+    const editCurPage = (type: string) => {
         switch (type) {
             case 'start':
                 return setCurPage(1)

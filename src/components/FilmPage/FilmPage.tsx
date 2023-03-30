@@ -3,12 +3,11 @@ import { useParams } from 'react-router-dom';
 import React, { useEffect } from 'react';
 import { moviesApi } from '../../api/api';
 import { getFilm } from '../../store/action';
-import { useDispatch, useSelector } from 'react-redux';
 import AddInformation from './AddInformation/AddInformation';
 import SimilarFilm from './SimilarFilm/SimilarFilm';
 import * as Scroll from 'react-scroll';
 import ButtonBack from '../../common/Buttons/ButtonBack/ButtonBack';
-import { useTypedSelector } from '../../Hooks/useTypedSelector/useTypedSelector';
+import { useAppDispatch, useTypedSelector } from '../../Hooks/useTypedSelector/useTypedSelector';
 import { IFilm } from '../../types/IFilm';
 import { ICountries } from '../../types/ICountries';
 import { IGenres } from '../../types/IGenres';
@@ -17,7 +16,7 @@ function FilmPage() {
     const { filmId } = useParams();
 
     const film = useTypedSelector(state => state.aboutFilm.film);
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     let scroll = Scroll.animateScroll;
 

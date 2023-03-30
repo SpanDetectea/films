@@ -1,4 +1,4 @@
 export interface IH {
     type: number,
-    value: string,
+    value: string|undefined|null,
 }

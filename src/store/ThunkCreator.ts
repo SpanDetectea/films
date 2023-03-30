@@ -1,8 +1,10 @@
+import { AnyAction, ThunkAction } from "@reduxjs/toolkit";
 import { moviesApi } from "../api/api";
 import { setFilms, togglePreloaderState } from "./action";
+import { RootState }  from '../store/store'
 
-export const setFilmsTC = (rating = [0,10], year = [1963, 2022], curPage = 1) => {
-    return async (dispatch:any) => {
+export const setFilmsTC = (rating: number[] = [0,10], year: number[] = [1963, 2022], curPage: number = 1): ThunkAction<void, RootState, unknown, AnyAction> => {
+    return async (dispatch) => {
         dispatch(togglePreloaderState());
         let response = await moviesApi.getFilmsFilters(
             rating[0],

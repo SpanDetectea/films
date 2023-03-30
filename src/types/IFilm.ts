@@ -51,3 +51,6 @@ export interface IFilm {
     hasImax?: boolean
     lastSync?: string
 }
+export interface IFilmObj {
+    film: IFilm
+}

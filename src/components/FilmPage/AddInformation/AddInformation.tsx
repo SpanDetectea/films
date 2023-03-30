@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react';
-import { useDispatch} from 'react-redux';
 import { moviesApi } from '../../../api/api';
 import './AddInformation.scss';
 import {getFacts} from '../../../store/action';
-import { useTypedSelector } from '../../../Hooks/useTypedSelector/useTypedSelector';
+import { useAppDispatch, useTypedSelector } from '../../../Hooks/useTypedSelector/useTypedSelector';
 
 function AddInformation() {
     const [choice, setChoice] = useState(1);
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const aboutFilm = useTypedSelector(state => state.aboutFilm)
 
     useEffect(() => {

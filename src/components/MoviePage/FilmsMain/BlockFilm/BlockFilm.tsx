@@ -2,9 +2,9 @@ import H from '../../../../common/H/H';
 import Rating from '../../../../common/Rating/Rating';
 import './BlockFilm.scss';
 import { NavLink } from 'react-router-dom'
+import { IFilmObj } from '../../../../types/IFilm';
 
-function BlockFilm({ film }) {
-
+function BlockFilm({film}:IFilmObj) {    
     return <NavLink to={'/film/' + film.kinopoiskId}>
         <div className="blockFilm">
             <img src={film.posterUrl} alt="" className='blockFilm__poster' />
@@ -15,7 +15,7 @@ function BlockFilm({ film }) {
                 {film.year}
             </div>
             <div className="blockFilm__description blockFilm-padding">
-                {film.genres.map((item, index) => {
+                {film.genres.map((item: any, index: number) => {
                     return index === film.genres.length - 1 ? item.genre : `${item.genre}, `;
                 })}
             </div>
