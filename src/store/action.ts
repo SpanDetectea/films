@@ -1,5 +1,6 @@
 import { IFacts } from '../types/IFacts';
 import { IFilm } from '../types/IFilm';
+import { IFilms } from '../types/IFilms';
 import { ISimilarFilms } from '../types/ISimilarFilms';
 import {
     GET_FILM, GET_FACTS, GET_SIMILAR_FILM,
@@ -24,26 +25,49 @@ export const setRating = (rating: number[]) => {
 export const setYear = (year: number[]) => {    
     return { type: SET__YEAR, year }
 }
-export const setFilms = (films: any) => {    
+export type setFilmsType = {
+    type: typeof SET__FILMS
+    films: IFilm[]
+}
+export const setFilms = (films: IFilm[]):setFilmsType => {    
     return { type: SET__FILMS, films }
 }
-export const togglePreloaderState = () => {
+export type togglePreloaderStateType = {
+    type: typeof TOGGLE__PRELOADER
+}
+export const togglePreloaderState = ():togglePreloaderStateType => {
     return { type: TOGGLE__PRELOADER }
 }
-export const setSearchFilms = (films: any) => {
+export type setSearchFilmsActionType = {
+    type: typeof GET__SEARCH__FILMS
+    films: IFilm[]
+}
+
+export const setSearchFilms = (films: IFilm[]):setSearchFilmsActionType => {
     return {type: GET__SEARCH__FILMS, films}
 }
-export const getFilms = (films: IFilm[]) => {    
-    return ({type: GET_FILMS, films} as const)
+export type getFilmsActionType = {
+    type: typeof GET_FILMS
+    films: IFilm[]
+}
+export const getFilms = (films: IFilm[]): getFilmsActionType => {   
+    // console.log(films); 
+    return ({type: GET_FILMS, films})
 };
-export const getMoreFilms = (films: IFilm[]) => {    
+export type getMoreFilmsActionType = {
+    type: typeof GET_MORE_FILMS
+    films: IFilms
+}
+export const getMoreFilms = (films: IFilms):getMoreFilmsActionType => {    
+    
+    
     return {type: GET_MORE_FILMS, films}
 }
-export const getInfoAboutFilm = (filmId: any) => {
-    console.log(filmId);
+// export const getInfoAboutFilm = (filmId: any) => {
+//     console.log(filmId);
     
-    return {type: GET_INFO_ABOUT_FILM, filmId}
-}
+//     return {type: GET_INFO_ABOUT_FILM, filmId}
+// }
 export const setAuth = (isAuth: any) => {
     return {type: SET_AUTH, isAuth}
 }

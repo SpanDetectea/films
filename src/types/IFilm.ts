@@ -1,7 +1,7 @@
 import { ICountries } from "./ICountries";
 import { IGenres } from "./IGenres";
 
-export interface IFilm {
+export type IFilm = {
     filmId: number,
     nameRu: string | null | undefined,
     nameEn: string | null | undefined,

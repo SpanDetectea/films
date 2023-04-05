@@ -20,12 +20,12 @@ function Main() {
     const [page, setPage] = useState(1);
 
     useEffect(() => {
-        moviesApi.getMovies(page).then(response => dispatch(getFilms(response)));
+        moviesApi.getMovies(page).then(response => dispatch(getFilms(response.films)));
     }, [])
 
     const getMore = (e: React.MouseEvent) => {
         if (e.currentTarget.tagName === 'BUTTON') {
-            moviesApi.getMovies(page + 1).then(response => dispatch(getMoreFilms(response)));
+            moviesApi.getMovies(page + 1).then(response => dispatch(getMoreFilms(response.films)));
             setPage(page + 1);
         }
     }
