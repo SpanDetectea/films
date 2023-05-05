@@ -2,10 +2,10 @@ import Main from "./Main/Main";
 import Promo from "./Promo/Promo";
 
 function StartPage () {
-    return <div>
+    return <>
         <Promo />
         <Main />
-    </div>
+    </>
 }
 
 export default StartPage;
