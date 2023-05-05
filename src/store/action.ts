@@ -16,7 +16,7 @@ export const getFilm = (data: IFilm) => {
 export const getFacts = (data: IFacts[]) => {    
     return { type: GET_FACTS, data }
 };
-export const getSimilatFilms = (data: ISimilarFilms) => {    
+export const getSimilatFilms = (data: ISimilarFilms) => {        
     return { type: GET_SIMILAR_FILM, data }
 };
 export const setRating = (rating: number[]) => {    
@@ -63,11 +63,11 @@ export const getMoreFilms = (films: IFilms):getMoreFilmsActionType => {
     
     return {type: GET_MORE_FILMS, films}
 }
-// export const getInfoAboutFilm = (filmId: any) => {
-//     console.log(filmId);
+export const getInfoAboutFilm = (filmId: number) => {
+    console.log(filmId);
     
-//     return {type: GET_INFO_ABOUT_FILM, filmId}
-// }
+    return {type: GET_INFO_ABOUT_FILM, filmId}
+}
 export const setAuth = (isAuth: any) => {
     return {type: SET_AUTH, isAuth}
 }

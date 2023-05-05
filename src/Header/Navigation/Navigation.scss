@@ -1,4 +1,23 @@
 .navigation {
+    &__icon {
+        color: #FFFFFF !important;
+    }
+    &__menu2 {
+        background-color: #1f1d1d;
+    }
+    &__subMenu {
+        background-color: #1f1d1d !important;
+        &__item {
+            &__text {
+                &:hover {
+                    color:white !important;
+                }
+                &:active {
+                    color: red !important;
+                }
+            }
+        }
+    }
     &__menu {
         width: 30px;
         height: 30px;
@@ -61,3 +80,22 @@
         transform: translateY(-300%);
     }
 }
+.ant-menu-horizontal, .ant-menu-item::after, .ant-menu-submenu::after {
+    border: none !important;
+}
+.ant-menu-vertical {
+    background-color: #1f1d1d !important;
+    color: white;
+}
+.ant-menu-item-selected {
+    color: #1f1d1d !important;
+    &:hover {
+        color:#1f1d1d !important;
+    }
+}
+
+// .proverka {
+//     &:hover {
+//         color:green !important;
+//     }
+// }

@@ -1,28 +1,19 @@
-import { log } from 'console';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { IFilm } from '../types/IFilm';
-import { setSearchFilmsActionType } from './action';
-import {GET__SEARCH__FILMS} from './actionConst'
-import { IFilms } from '../types/IFilms';
-import { AnyAction } from '@reduxjs/toolkit';
-
 
 let initialState = {
     films: null as IFilm[] | null,
     isAuth: false
 }
-type initialStateType = typeof initialState
-type ActionsTypes = setSearchFilmsActionType
-const headerReducer = (state: initialStateType = initialState, action:  ActionsTypes):initialStateType => {
-switch (action.type) {
-    case GET__SEARCH__FILMS:        
-    console.log(action.films)
-        let a =  {...state, films: [...action.films]} 
-        console.log(a);
-              
-        return {...state, films: [...action.films]}
-    default: return state;
-}
+const headerReducer = createSlice({
+    name:'header',
+    initialState,
+    reducers: {
+        getSerchFilms: (state, { payload }: PayloadAction<IFilm[]>) => {
+            state.films = payload;
+        },
+    }
+})
+export const {getSerchFilms} = headerReducer.actions
 
-}
-
-export default headerReducer;
+export default headerReducer.reducer;

@@ -4,11 +4,10 @@ import { moviesApi } from '../../../api/api';
 import H from '../../../common/H/H';
 import NavLinkFilm from '../../../common/NavLinks/NavLinkFilm/NavLinkFilm';
 import { useAppDispatch, useTypedSelector } from '../../../Hooks/useTypedSelector/useTypedSelector';
-import { getSimilatFilms } from '../../../store/action'
 import './SimilarFilm.scss';
+import { getSimilarFilms } from '../../../store/aboutFilmReducer';
 
 function SimilarFilm() {
-
     const { filmId } = useParams();
 
     const dispatch = useAppDispatch();
@@ -17,8 +16,8 @@ function SimilarFilm() {
     const [startIndexFilm, setStartIndexFilm] = useState(0);
 
     useEffect(() => {
-        moviesApi.getSimilarFilms(filmId).then(response => dispatch(getSimilatFilms(response)))
-    }, [])
+        moviesApi.getSimilarFilms(filmId).then(response => dispatch(getSimilarFilms(response)))
+    }, [filmId])
 
     const prevFilms = () => {
         setStartIndexFilm(startIndexFilm - 4)
@@ -34,7 +33,7 @@ function SimilarFilm() {
         </div>
         <div className="similarFilm__wrapper">
             <div className="similarFilm__wrapper__container">
-                {aboutFilm.similars.map((item, index) => {
+                {aboutFilm.similars.map((item: any, index: number) => {
                     if ((index < startIndexFilm + 4) && (index >= startIndexFilm))
                         return <div key={index}>
                             <NavLinkFilm item={item} />

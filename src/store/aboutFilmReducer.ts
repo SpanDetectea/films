@@ -1,41 +1,29 @@
-import {GET_FILM, GET_FACTS, GET_SIMILAR_FILM} from './actionConst';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { IFilm } from '../types/IFilm';
+import { IFact, IGetFacts, IGetSimilarFilms } from '../types/IAboutFilm';
 
-interface IState {
-    film: any[],
-    facts: any[],
-    similars: any[],
-    similarsTotal: any | null,
+let initialState = {
+    film: {} as IFilm,
+    facts: [] as IFact[],
+    similars: [] as [] | IFilm[],
+    similarsTotal: 0
 }
-
-let initialState: IState = {
-    film: [],
-    facts: [],
-    similars: [],
-    similarsTotal: null
-}
-
-const aboutFilmReducer = (state = initialState, action: any) => {
-    switch (action.type) {
-        case GET_FILM:
-            let newFilm = [];
-            newFilm.push(action.data)
-            return {
-                ...state,
-                film: newFilm
-            };
-        case GET_FACTS:
-            return {
-                ...state,
-                facts: [...action.data.items]
-            };
-        case GET_SIMILAR_FILM:
-            return {
-                ...state,
-                similars: [...action.data.items],
-                similarsTotal:  action.data.total
-            };
-        default: return state;
+const aboutFilmReducer = createSlice({
+    name: 'aboutFilm',
+    initialState,
+    reducers: {
+        getFilm: (state, { payload }: PayloadAction<IFilm>) => {
+            state.film = payload
+        },
+        getFacts: (state, { payload }: PayloadAction<IGetFacts>) => {
+            state.facts = payload.items
+        },
+        getSimilarFilms : (state, { payload }: PayloadAction<IGetSimilarFilms>)=> {
+            state.similars = payload.items
+            state.similarsTotal = payload.total
+        }
     }
-}
+})
+export const { getFilm, getFacts, getSimilarFilms} = aboutFilmReducer.actions
 
-export default aboutFilmReducer;
+export default aboutFilmReducer.reducer;

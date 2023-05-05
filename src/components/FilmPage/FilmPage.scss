@@ -1,4 +1,4 @@
-.aboutFilm {
+.filmPage {
     max-width: 1300px;
     margin: 120px auto 60px auto;
     display: flex;
@@ -10,7 +10,7 @@
         background: none;
         border: none;
         cursor: pointer;
-        font-family: 'Oswald', sans-serif;
+        font-family: "Oswald", sans-serif;
         transition: transform 1s;
         &:hover {
             transform: rotate(360deg);
@@ -22,13 +22,14 @@
         align-items: center;
     }
     &__image {
+        margin-left: 10px;
         width: 300px;
         border-radius: 10px;
     }
     &__wrapper {
         margin-left: 30px;
         &__name {
-            font-family: 'Oswald', sans-serif;
+            font-family: "Oswald", sans-serif;
         }
         &__nameOriginal {
             color: grey;
@@ -41,33 +42,40 @@
         }
         &__description {
             margin: 20px 0;
-            font-family: 'Oswald', sans-serif;
+            font-family: "Oswald", sans-serif;
         }
         &__list {
             list-style-type: none;
             &__par {
                 margin: 15px 0;
                 display: flex;
-                font-family: 'Raleway', sans-serif;
+                font-family: "Raleway", sans-serif;
                 span:first-child {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
                     min-width: 200px;
                     color: rgb(100, 100, 100);
+                }
+                span:nth-child(2n) {
+                    text-align: left;
                 }
             }
         }
         &__viewing {
-            background-color: lightcoral;
+            background-color: rgb(31, 29, 29);
             color: white;
             &:hover {
-                background-color: rgb(230, 95, 95);
+                background-color: rgb(156, 156, 156);
+                color: white !important;
             }
             @media screen and (max-width: 700px) {
-                margin-bottom: 10px; 
+                margin-bottom: 10px;
             }
         }
         &__favorites {
             background-color: rgb(199, 199, 199);
-            color: black;
+            color: rgb(31, 29, 29) !important;
             &:hover {
                 background-color: rgb(156, 156, 156);
             }
@@ -84,8 +92,9 @@
     border: none;
     cursor: pointer;
     font-weight: 600;
+    font-size: 13px !important;
     transition: all 0.3s;
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
     &:active {
         transform: scale(0.95, 0.95);
     }

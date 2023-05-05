@@ -1,14 +1,21 @@
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { RATING__MAX, RATING__MIN, YEAR__MAX, YEAR__MIN } from "../consts/filtersConst";
-import {SET__RATING, SET__YEAR, SET__FILMS, TOGGLE__PRELOADER} from "./actionConst"
+import { IFilm } from "../types/IFilm";
 
 interface Istate3 {
     rating: number[],
     year: number[],
-    films: any,
+    films: IFilm[],
     preloaderState: boolean,
     genres: string[],
     total?: number,
     totalPages?: number
+}
+
+interface action {
+    items: IFilm[],
+    total:number,
+    totalPages: number
 }
 
 let initialState: Istate3 = {
@@ -45,36 +52,27 @@ let initialState: Istate3 = {
     ],
 }
 
-const filmsMainReducer = (state = initialState, action: any) => {
-    switch (action.type) {
-        case SET__RATING: {
-            return {
-                ...state,
-                rating: [...action.rating]
-            }
-        }
-        case SET__YEAR: {
-            return {
-                ...state,
-                year: [...action.year]
-            }
-        }
-        case SET__FILMS: {
-            return {
-                ...state,
-                films: [...action.films.items],
-                total: action.films.total,
-                totalPages: action.films.totalPages
-            }
-        }
-        case TOGGLE__PRELOADER: {
-            return {
-                ...state,
-                preloaderState: !state.preloaderState
-            }
-        }
-        default: return state;
+const filmsMainReducer = createSlice({
+    name:'filmsMain',
+    initialState,
+    reducers: {
+        setRating: (state, {payload}: PayloadAction<number[]>) => {
+            state.rating=payload
+        },
+        setYear: (state, {payload}: PayloadAction<number[]>) => {
+            state.year=payload
+        },
+        setFilms: (state, {payload}: PayloadAction<action>) => {            
+            state.films = [...payload.items] // может не нужно spread 
+            state.total = payload.total
+            state.totalPages= payload.totalPages
+        },
+        togglePreloader: (state) => {
+            state.preloaderState=!state.preloaderState
+        },
     }
-}
+})
 
-export default filmsMainReducer;
+export const {setRating,setYear,setFilms,togglePreloader} = filmsMainReducer.actions
+
+export default filmsMainReducer.reducer;

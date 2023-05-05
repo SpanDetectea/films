@@ -5,6 +5,7 @@
         margin: 0 10px;
     }
     &__wrapper {
+        margin: 0 10px;
         font-family: 'Open Sans', sans-serif;
         &__header {
             display: flex;
@@ -16,6 +17,7 @@
             }
         }
         &__content {
+            text-align: start;
             &__item {
                 border-bottom: 1px solid rgb(204, 204, 204);
                 margin-bottom: 15px;
@@ -30,5 +32,5 @@
     }
 }
 .red {
-    border-bottom: 2px solid lightcoral;
+    border-bottom: 2px solid #1F1D1D;
 }

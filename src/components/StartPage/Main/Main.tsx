@@ -2,7 +2,6 @@ import './Main.scss';
 import '../../../styles/antd.scss'
 import { useEffect, useState } from 'react';
 import { moviesApi } from '../../../api/api';
-import { getFilms, getMoreFilms } from '../../../store/action';
 import { NavLink } from 'react-router-dom'
 import Rating from '../../../common/Rating/Rating';
 import NavLinkFilm from '../../../common/NavLinks/NavLinkFilm/NavLinkFilm';
@@ -10,6 +9,7 @@ import H from '../../../common/H/H';
 import { useAppDispatch, useTypedSelector } from '../../../Hooks/useTypedSelector/useTypedSelector';
 import { IFilm } from '../../../types/IFilm';
 import { Button } from 'antd';
+import { getFilms, getMoreFilms } from '../../../store/mainReducer';
 
 
 function Main() {
@@ -34,7 +34,7 @@ function Main() {
         <div className="main__header">
             <H type={1} value={'Новые фильмы'} />
             <NavLink to='/movie'>
-                <Button type='primary' size='middle'>Смотреть все</Button>
+                <Button type='primary' size='middle' className='main-buttons'>Смотреть все</Button>
             </NavLink>
         </div>
         <div className='main__movies'>
@@ -47,7 +47,7 @@ function Main() {
                 );
             })}
         </div>
-        <Button type='primary' size={'large'} onClick={(e) => getMore(e)}>Показать еще</Button>
+        <Button type='primary' size={'large'} className='main-buttons' onClick={(e) => getMore(e)}>Показать еще</Button>
     </div>
 }
 

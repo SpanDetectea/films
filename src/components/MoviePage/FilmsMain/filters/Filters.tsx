@@ -1,18 +1,18 @@
 import { useState } from 'react';
 import RangeComponent from '../../../../common/Range/Range';
 import './Filter.scss';
-import { setRating } from '../../../../store/action';
-import { connect } from 'react-redux'
 import H from '../../../../common/H/H';
+import { useAppDispatch, useTypedSelector } from '../../../../Hooks/useTypedSelector/useTypedSelector';
+import { setRating } from '../../../../store/filmsMainReducer';
 
-interface dsa {
+interface IName {
     name:string,
-    min: number,
-    max: number,
-    setValues: Function
 }
 
-const Filters = ({name, min, max, setValues}:dsa) => {
+const Filters = ({name}:IName) => {
+    
+    const [min, max] = useTypedSelector(state=>state.filmsMain.rating)
+    const dispatch = useAppDispatch();
     
     const [ratingValues, setRatingValues] = useState([min, max])
     const [isViewRating, setIsViewRating] = useState(true);
@@ -23,21 +23,21 @@ const Filters = ({name, min, max, setValues}:dsa) => {
             return setRatingValues([min, ratingValues[1]])
         }
         setRatingValues([prop, ratingValues[1]])
-        setValues(ratingValues)
+        dispatch(setRating(ratingValues))
     }
     const validateRating1 = (e: React.ChangeEvent<HTMLInputElement>) => {
         let prop = +e.target.value;
         if ((prop > ratingValues[1]) || (prop < min)) {
             setRatingValues([min, ratingValues[1]])
         }
-        setValues(ratingValues)
+        dispatch(setRating(ratingValues))
     }
     const validateRating2 = (e: React.ChangeEvent<HTMLInputElement>) => {
         let prop = +e.target.value;
         if ((prop < ratingValues[0])) {
             setRatingValues([ratingValues[0], max])
         }
-        setValues(ratingValues)
+        dispatch(setRating(ratingValues))
     }
     const ratingUpTo = (e: React.ChangeEvent<HTMLInputElement>) => {
         let prop = +e.target.value;
@@ -45,7 +45,7 @@ const Filters = ({name, min, max, setValues}:dsa) => {
             return setRatingValues([ratingValues[0], max])
         }
         setRatingValues([ratingValues[0], prop])
-        setValues(ratingValues)
+        dispatch(setRating(ratingValues))
     }
     const toggleRating = () => {
         setIsViewRating(!isViewRating)
@@ -69,7 +69,7 @@ const Filters = ({name, min, max, setValues}:dsa) => {
                     </span>
                     <input type="text" className="filter__values__upTo__input" onBlur={(e) => validateRating2(e)} value={ratingValues[1]} onInput={(e: React.ChangeEvent<HTMLInputElement>) => ratingUpTo(e)} />
                 </label>
-                <RangeComponent ratingValues={ratingValues} setRatingValues={setRatingValues} setValues={setValues} minV = {min} maxV = {max}/>
+                <RangeComponent ratingValues={ratingValues} setRatingValues={setRatingValues} setValues={(e: number[]) => dispatch(setRating(e))} minV = {min} maxV = {max}/>
             </div>}
 
 
@@ -78,6 +78,4 @@ const Filters = ({name, min, max, setValues}:dsa) => {
 }
 
 
-export default connect(null, {
-    setRating
-})(Filters);
+export default Filters;

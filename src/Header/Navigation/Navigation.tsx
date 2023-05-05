@@ -2,30 +2,56 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navigation.scss';
+import { Menu, MenuProps } from 'antd';
+import { UnorderedListOutlined} from '@ant-design/icons'
+
+const items: MenuProps['items'] = [
+    {
+        label: '',
+        key: 'SubMenu',
+        icon: <UnorderedListOutlined className='navigation__icon' style={{fontSize: '20px'}}/>,
+        popupClassName:'navigation__subMenu',
+        popupOffset:[-100,0],
+        children: [
+          {
+            type: 'group',
+            label: '',
+            className: 'navigation__subMenu__item',
+            children: [
+              {
+                label: <Link to='/'>Главная</Link>,
+                key: 'setting:1',
+                className:'navigation__subMenu__item__text'
+              },
+              {
+                label: <Link to='/movie'>Кино</Link>,
+                key: 'setting:2',
+                className:'navigation__subMenu__item__text'
+              },
+              {
+                label: <Link to='/series'>Сериалы</Link>,
+                key: 'setting:3',
+                className:'navigation__subMenu__item__text'
+              },
+              {
+                label: <Link to='/cartoons'>Мультфильмы</Link>,
+                key: 'setting:4',
+                className:'navigation__subMenu__item__text'
+              },
+            ],
+          },
+        ],
+      },
+
+];
 
 function Navigation() {
-    const [active, setActive] = useState(false)
-    return <div className='navigation'>
-        <div className="navigation__menu" onClick={()=>setActive(!active)}>
-            <span className='navigation__menu__cLine'/>
-        </div>
-        {active ? <nav className='navigation__wrapper'>
-            <ul >
-                <li><Link to='/'>Главная</Link></li>
-                <li><Link to='/movie'>Кино</Link></li>
-                <li><Link to='/series'>Сериалы</Link></li>
-                <li><Link to='/cartoons'>Мультфильмы</Link></li>
-            </ul>
-        </nav> : <nav className='navigation__wrapper navigation__active'>
-            <ul >
-                <li><Link to='/'>Главная</Link></li>
-                <li><Link to='/movie'>Кино</Link></li>
-                <li><Link to='/series'>Сериалы</Link></li>
-                <li><Link to='/cartoons'>Мультфильмы</Link></li>
-            </ul>
-        </nav>}
-        
-    </div>
+    const [current, setCurrent] = useState('');
+    const onClick: MenuProps['onClick'] = (e) => {
+        setCurrent(e.key);
+      };
+    
+      return <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} triggerSubMenuAction="click" className='navigation__menu2'/>;
 }
 
 export default Navigation;

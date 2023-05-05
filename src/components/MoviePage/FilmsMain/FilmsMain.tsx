@@ -1,8 +1,6 @@
 import './FilmsMain.scss';
-import { setRating, setYear } from '../../../store/action';
 import { setFilmsTC } from '../../../store/ThunkCreator';
 import Filters from './filters/Filters';
-import { RATING__MAX, RATING__MIN, YEAR__MAX, YEAR__MIN } from '../../../consts/filtersConst';
 import H from '../../../common/H/H';
 import { useEffect, useState } from 'react';
 import BlockFilm from './BlockFilm/BlockFilm';
@@ -35,8 +33,8 @@ function FilmsMain() {
                 <p className="filmsMain__menu__header__description">Подборка фильмов</p>
             </div>
             <div className="filmsMain__menu__filter">
-                <Filters name='Рейтинг' min={RATING__MIN} max={RATING__MAX} setValues={(e: number[]) => dispatch(setRating(e))} />
-                <Filters name='Год' min={YEAR__MIN} max={YEAR__MAX} setValues={(e: number[]) => dispatch(setYear(e))} />
+                <Filters name='Рейтинг'/>
+                <Filters name='Год'/>
                 <div className="filmsMain__menu__filter__btns">
                     <Button type='primary' size='middle' style={{ background: "red", borderColor: "yellow" }} onClick={getFilmWithFilters}>Применить</Button>
                     <Button type='primary' size='middle' style={{ background: "red", borderColor: "yellow" }} onClick={getFilmWithoutFilters}>Сброс</Button>

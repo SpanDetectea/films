@@ -5,7 +5,9 @@ import { IPagination } from '../../../../types/IPagination';
 function Pagination({ curPage, setCurPage }: IPagination) {
     const total = useTypedSelector(state => state.filmsMain.total);
     const totalPage = useTypedSelector(state => state.filmsMain.totalPages);
-    const pageNumbers = Math.ceil(total / totalPage);
+    const pageNumbers = (total&&totalPage&&Math.ceil(total / totalPage));
+
+    console.log(pageNumbers)
 
     const editCurPage = (type: string) => {
         switch (type) {

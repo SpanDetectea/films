@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { moviesApi } from '../../../api/api';
 import './AddInformation.scss';
-import {getFacts} from '../../../store/action';
 import { useAppDispatch, useTypedSelector } from '../../../Hooks/useTypedSelector/useTypedSelector';
+import { getFacts } from '../../../store/aboutFilmReducer';
 
 function AddInformation() {
     const [choice, setChoice] = useState(1);
@@ -11,8 +11,8 @@ function AddInformation() {
     const aboutFilm = useTypedSelector(state => state.aboutFilm)
 
     useEffect(() => {
-        if (aboutFilm.film.length > 0) {
-            moviesApi.getFacts(aboutFilm.film[0].kinopoiskId).then(response => dispatch(getFacts(response)));
+        if (aboutFilm.film.hasOwnProperty('kinopoiskId')) {
+            moviesApi.getFacts(aboutFilm.film.kinopoiskId).then(response => dispatch(getFacts(response)));
         }
     }, [aboutFilm.film])
 
@@ -30,13 +30,13 @@ function AddInformation() {
                 <div className={styleHeaderName(3)} onClick={() => setChoice(3)}>Ошибки</div>
             </div>
             <div className='addInformation__wrapper__content'>
-                {aboutFilm.film.length > 0 && choice === 1 && aboutFilm.film[0].description}
-                {aboutFilm.facts.length > 0 && choice === 2 && aboutFilm.facts.map((item, index) => {
+                {aboutFilm.film.hasOwnProperty('kinopoiskId') && choice === 1 && aboutFilm.film.description}
+                {aboutFilm.facts.length > 0 && choice === 2 && aboutFilm.facts.map((item: any, index: number) => {
                     if (item.type === 'FACT') {
                         return <div key = {index} dangerouslySetInnerHTML={createMarkup(item.text)} className = 'addInformation__wrapper__content__item' />;
                     }
                 })}
-                {aboutFilm.facts.length > 0 && choice === 3 && aboutFilm.facts.map((item, index) => {
+                {aboutFilm.facts.length > 0 && choice === 3 && aboutFilm.facts.map((item: any, index: number) => {
                     if (item.type === 'BLOOPER') {
                         return <div key = {index} dangerouslySetInnerHTML={createMarkup(item.text)} className = 'addInformation__wrapper__content__item' />;
                     }
