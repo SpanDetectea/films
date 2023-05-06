@@ -53,7 +53,7 @@ let initialState: Istate3 = {
 }
 
 const filmsMainReducer = createSlice({
-    name:'filmsMain',
+    name:'allFilms',
     initialState,
     reducers: {
         setRating: (state, {payload}: PayloadAction<number[]>) => {

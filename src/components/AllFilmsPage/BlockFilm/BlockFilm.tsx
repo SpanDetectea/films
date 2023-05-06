@@ -1,15 +1,15 @@
-import H from '../../../../common/H/H';
-import Rating from '../../../../common/Rating/Rating';
+import { Typography } from 'antd';
+import Rating from '../../../common/Rating/Rating';
+import { IFilmObj } from '../../../types/IFilm';
 import './BlockFilm.scss';
 import { NavLink } from 'react-router-dom'
-import { IFilmObj } from '../../../../types/IFilm';
 
 function BlockFilm({film}:IFilmObj) {    
     return <NavLink to={'/film/' + film.kinopoiskId}>
         <div className="blockFilm">
             <img src={film.posterUrl} alt="" className='blockFilm__poster' />
             <div className="blockFilm__name blockFilm-padding">
-                <H type={3} value={film.nameRu ?? film.nameOriginal} />
+                <Typography.Text>{film.nameRu ?? film.nameOriginal}</Typography.Text>
             </div>
             <div className="blockFilm__year blockFilm-padding">
                 {film.year}

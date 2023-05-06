@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import aboutFilmReducer from "./aboutFilmReducer";
 import authReducer from "./authReducer";
-import filmsMainReducer from "./filmsMainReducer";
+import filmsMainReducer from "./allFilmsReducer";
 import mainReducer from "./mainReducer";
 import headerReducer from "./headerReducer";
 
@@ -10,7 +10,7 @@ const store = configureStore({
         main: mainReducer,
         aboutFilm: aboutFilmReducer,
         header: headerReducer,
-        filmsMain: filmsMainReducer,
+        allFilms: filmsMainReducer,
         auth: authReducer
     }
 });

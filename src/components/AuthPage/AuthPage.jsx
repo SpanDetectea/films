@@ -1,10 +1,10 @@
 import './AuthPage.scss';
-import Header from '../../Header/Header'
 import { useDispatch, useSelector } from 'react-redux';
-import { setAuth } from '../../store/action';
+// import { setAuth } from '../../store/action';
 import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import ButtonBack from './../../common/Buttons/ButtonBack/ButtonBack';
+import Header from '../Header/Header';
 
 function AuthPage() {
     const [login, setLogin] = useState('')
@@ -14,7 +14,7 @@ function AuthPage() {
 
     const setAuthInfo = () => {
         if ((login ==='user') && (password === 'pas')) {
-            dispatch(setAuth(true));
+            // dispatch(setAuth(true));
         }
     }
 

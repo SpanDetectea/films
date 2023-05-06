@@ -4,8 +4,8 @@ import { RATING__MIN, RATING__MAX, YEAR__MIN, YEAR__MAX } from '../consts/filter
 const instance = axios.create({
     baseURL: 'https://kinopoiskapiunofficial.tech',
     headers: {
-        // 'X-API-KEY': '2db36e01-65c5-4c85-bcc8-42996fbff616', //gmail
-        'X-API-KEY': '0eef1eeb-c3c0-4165-ae66-e2a7074cd6a3', //yandex
+        'X-API-KEY': '2db36e01-65c5-4c85-bcc8-42996fbff616', //gmail
+        //'X-API-KEY': '0eef1eeb-c3c0-4165-ae66-e2a7074cd6a3', //yandex
     }
 });
 

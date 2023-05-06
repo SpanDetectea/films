@@ -6,14 +6,11 @@
         justify-content: space-between;
         align-items: center;
         margin: 0 6px;
-        a {
-            text-decoration: none;
-        }
-        @media screen and (max-width:440px) {
-         font-size: 0.8em;   
+        @media screen and (max-width: 440px) {
+            font-size: 0.8em;
         }
     }
-    
+
     &__movies {
         font-size: 18px;
         display: flex;

@@ -1,13 +1,13 @@
+import { useTypedSelector } from '../../../Hooks/useTypedSelector/useTypedSelector';
+import { IPagination } from '../../../types/IPagination';
 import './Pagination.scss';
-import { useTypedSelector } from '../../../../Hooks/useTypedSelector/useTypedSelector';
-import { IPagination } from '../../../../types/IPagination';
 
 function Pagination({ curPage, setCurPage }: IPagination) {
-    const total = useTypedSelector(state => state.filmsMain.total);
-    const totalPage = useTypedSelector(state => state.filmsMain.totalPages);
+    const total = useTypedSelector(state => state.allFilms.total);
+    const totalPage = useTypedSelector(state => state.allFilms.totalPages);
     const pageNumbers = (total&&totalPage&&Math.ceil(total / totalPage));
 
-    console.log(pageNumbers)
+    // console.log(pageNumbers)
 
     const editCurPage = (type: string) => {
         switch (type) {

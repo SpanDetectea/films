@@ -1,17 +1,13 @@
 import { ChangeEvent, useState } from "react";
-import { moviesApi } from "../api/api";
 import "./Header.scss";
 import Navigation from "./Navigation/Navigation";
-import { setSearchFilms } from "../store/action";
 import { NavLink } from "react-router-dom";
-import {
-  useAppDispatch,
-  useTypedSelector,
-} from "../Hooks/useTypedSelector/useTypedSelector";
-import { IFilm } from "../types/IFilm";
-import { getSerchFilms } from "../store/headerReducer";
-import { Col, Input, Layout, Row, Space } from "antd";
+import { Col, Input, Layout, Row } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
+import { useAppDispatch, useTypedSelector } from "../../Hooks/useTypedSelector/useTypedSelector";
+import { moviesApi } from "../../api/api";
+import { getSerchFilms } from "../../store/headerReducer";
+import { IFilm } from "../../types/IFilm";
 
 function Header() {
   const [search, setSearch] = useState("");

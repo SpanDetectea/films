@@ -9,10 +9,15 @@
     grid-template-areas:
         "name hide"
         "values values";
-
+    &__slider {
+        grid-area: range;
+        width: 100%;
+        color: red;
+    }
     &__name {
         justify-self: start;
         grid-area: name;
+        margin-top: 0;
     }
 
     &__values {

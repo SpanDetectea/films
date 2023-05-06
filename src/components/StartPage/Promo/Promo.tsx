@@ -1,5 +1,5 @@
 import "./Promo.scss";
-import promo from "../../../videos/promo.mp4";
+import promo from "../../../assets/videos/promo.mp4";
 import { NavLink } from "react-router-dom";
 import Button from "antd/es/button";
 import { ArrowRightOutlined } from "@ant-design/icons";
