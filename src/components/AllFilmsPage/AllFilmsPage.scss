@@ -31,7 +31,8 @@
         &__header {
             &__description {
                 margin: 20px 0 50px 0;
-                font-size: 20px;
+                font-size: 23px;
+                font-weight: 500;
             }
         }
 
@@ -48,9 +49,12 @@
     &__wrapper {
         grid-area: wrapper;
         position: relative;
+        &__pagination {
+            margin:20px 0;
+        }
     }
 }
 
 .reverseHide {
-    transform: rotate(90deg) !important;
+    transform: rotate(180deg) !important;
 }

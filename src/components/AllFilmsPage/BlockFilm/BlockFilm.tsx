@@ -9,7 +9,7 @@ function BlockFilm({film}:IFilmObj) {
         <div className="blockFilm">
             <img src={film.posterUrl} alt="" className='blockFilm__poster' />
             <div className="blockFilm__name blockFilm-padding">
-                <Typography.Text>{film.nameRu ?? film.nameOriginal}</Typography.Text>
+                <Typography.Text className='blockFilm__name'>{film.nameRu ?? film.nameOriginal}</Typography.Text>
             </div>
             <div className="blockFilm__year blockFilm-padding">
                 {film.year}

@@ -7,7 +7,7 @@ function Pagination({ curPage, setCurPage }: IPagination) {
     const totalPage = useTypedSelector(state => state.allFilms.totalPages);
     const pageNumbers = (total&&totalPage&&Math.ceil(total / totalPage));
 
-    // console.log(pageNumbers)
+    console.log(total, totalPage, pageNumbers)
 
     const editCurPage = (type: string) => {
         switch (type) {

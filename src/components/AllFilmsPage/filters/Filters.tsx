@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './Filter.scss';
 import { Input, Slider, Typography } from 'antd';
 import { useAppDispatch } from '../../../Hooks/useTypedSelector/useTypedSelector';
+import { CaretUpOutlined } from '@ant-design/icons';
 
 interface IName {
     name:string,
@@ -57,8 +58,8 @@ const Filters = ({name, maxAndMin, setFiltersValue}:IName) => {
     return (
         <div className="filter">
             <Typography.Title className="filter__name" level={4}>{name}</Typography.Title>
-            <button className={isViewRating ? 'filter__hide' : 'filter__hide reverseHide'}>
-                <span onClick={toggleRating}>{'>'}</span>
+            <button className={isViewRating ? 'filter__hide' : 'filter__hide reverseHide'} onClick={toggleRating}>
+                <span ><CaretUpOutlined /></span>
             </button>
             {isViewRating && <div className="filter__values">
                 <label htmlFor="" className="filter__values__from">

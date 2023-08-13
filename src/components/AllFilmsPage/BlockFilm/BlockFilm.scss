@@ -20,16 +20,18 @@
     }
 
     &__poster {
-        width: 70px;
-        height: 100px;
+        width: 90px;
+        height: 140px;
         grid-area: poster;
         @media screen and (max-width:850px) {
             width: 60px;
+            height: 100px;
         }
     }
 
     &__name {
         grid-area: name;
+        font-size: 1.2em;
     }
 
     &__rating {
@@ -55,8 +57,8 @@
             color: rgb(143, 138, 138);
 
             &:hover {
-                background: lightcoral;
-                border-color: lightcoral;
+                background: rgb(31, 29, 29);
+                border-color: rgb(31, 29, 29);
                 color: white;
                 cursor: pointer;
             }
@@ -67,6 +69,7 @@
         grid-area: year;
         align-self: center;
         font-family: "Open Sans", sans-serif;
+        font-size: 1.2em;
     }
 
     &__description {
